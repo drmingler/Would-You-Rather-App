@@ -1,6 +1,5 @@
 import { getUsers } from "./users";
 import { getQuestions } from "./questions";
-import { setAuthUser } from "./authuser";
 import { showLoading, hideLoading } from "react-redux-loading";
 import { getInitialData } from "../utils/api";
 
