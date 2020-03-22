@@ -1,5 +1,5 @@
 import React from "react";
-import { saveQuestionAnswer, saveQuestion, getInitialData } from "../utils/api";
+import { getInitialData } from "../utils/api";
 
 class App extends React.Component {
   componentDidMount() {
