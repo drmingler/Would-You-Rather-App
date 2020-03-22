@@ -1,18 +1,20 @@
-import React from 'react';
+import React from "react";
+import { saveQuestionAnswer, saveQuestion, getInitialData } from "../utils/api";
 
-class  App extends React.Component{
-    componentDidMount() {
-        console.log("I was here first")
-    }
+class App extends React.Component {
+  componentDidMount() {
+      getInitialData().then(({users,questions})=>{
+          console.log('users : ', users);
+          console.log('questions :', questions)})
+  }
 
-    render() {
-        return (
-            <div className="App">
-                <p>Hello React</p>
-            </div>
-        );
-    }
-
+  render() {
+    return (
+      <div className="App">
+        <p>Hello React</p>
+      </div>
+    );
+  }
 }
 
 export default App;
