@@ -1,11 +1,11 @@
 import { showLoading, hideLoading } from "react-redux-loading";
 import { saveQuestion, saveQuestionAnswer } from "../utils/api";
 
-const GET_QUESTIONS = "GET_QUESTIONS";
+export const GET_QUESTIONS = "GET_QUESTIONS";
 // Save the answers picked by other users for a specific question
-const SAVE_QUESTIONS_ANSWERS = "SAVE_QUESTIONS_ANSWERS";
+export const SAVE_QUESTIONS_ANSWERS = "SAVE_QUESTIONS_ANSWERS";
 // Add new questions
-const ADD_QUESTIONS = "ADD_QUESTIONS";
+export const ADD_QUESTIONS = "ADD_QUESTIONS";
 
 export function getQuestions(questions) {
   return {
