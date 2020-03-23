@@ -1,7 +1,7 @@
-import { addAnswersToUsers,getUsers } from "./users";
-import { addQuestionVote, getQuestions } from "./questions";
+import { addQuestionIdToUsers, addAnswersToUsers, getUsers } from "./users";
+import { addQuestion, addQuestionVote, getQuestions } from "./questions";
 import { showLoading, hideLoading } from "react-redux-loading";
-import { getInitialData, saveQuestionAnswer } from "../utils/api";
+import { getInitialData, saveQuestion, saveQuestionAnswer } from "../utils/api";
 // import { logOut } from "./authUser";
 
 export function handleInitialData() {
@@ -16,12 +16,34 @@ export function handleInitialData() {
   };
 }
 
-// answer could be option 1 or option 2
+// Answer could be option 1 or option 2
 export function handleSaveQuestionAnswers(data) {
   return dispatch => {
     saveQuestionAnswer(data).then(() => {
       dispatch(addQuestionVote(data));
       dispatch(addAnswersToUsers(data));
     });
+  };
+}
+
+/* Adds the id of the question to the user that created the question
+ and also adds the new question to the list of available questions */
+export function handleAddQuestions({
+  optionOneText,
+  optionTwoText,
+  authedUser
+}) {
+  return dispatch => {
+    dispatch(showLoading());
+    saveQuestion({
+      optionOneText,
+      optionTwoText,
+      author: authedUser
+    })
+      .then(question => {
+        dispatch(addQuestion(question));
+        dispatch(addQuestionIdToUsers(authedUser, question.id));
+      })
+      .then(dispatch(hideLoading()));
   };
 }

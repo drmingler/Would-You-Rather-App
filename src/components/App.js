@@ -1,8 +1,7 @@
 import React from "react";
 import { handleInitialData } from "../actions/shared";
 import { connect } from "react-redux";
-import { handleSaveQuestionAnswers } from "../actions/shared";
-import {handleAddQuestions} from '../actions/questions';
+import { handleSaveQuestionAnswers, handleAddQuestions } from "../actions/shared";
 import { setAuthUser } from '../actions/authUser'
 class App extends React.Component {
   update = () =>{

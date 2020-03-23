@@ -23,24 +23,11 @@ export function addQuestionVote({ authedUser, qid, answer }) {
   };
 }
 
-export function addQuestions(question) {
+export function addQuestion(question) {
   return {
     type: ADD_QUESTIONS,
     question
   };
 }
 
-export function handleAddQuestions({ optionOneText, optionTwoText, authedUser }) {
-  return (dispatch, getState) => {
-    // const { authedUser } = getState();
-    // console.log(authedUser)
-    dispatch(showLoading());
-    saveQuestion({
-      optionOneText,
-      optionTwoText,
-      author: authedUser
-    })
-      .then(question => dispatch(addQuestions(question)))
-      .then(dispatch(hideLoading()));
-  };
-}
+
