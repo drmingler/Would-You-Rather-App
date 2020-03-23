@@ -1,11 +1,9 @@
 import React from "react";
-import { getInitialData } from "../utils/api";
-
+import { handleInitialData } from '../actions/shared'
+import { connect } from 'react-redux'
 class App extends React.Component {
   componentDidMount() {
-      getInitialData().then(({users,questions})=>{
-          console.log('users : ', users);
-          console.log('questions :', questions)})
+      this.props.dispatch(handleInitialData())
   }
 
   render() {
@@ -17,4 +15,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default connect()(App);

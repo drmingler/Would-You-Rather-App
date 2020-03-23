@@ -3,9 +3,11 @@ import { saveQuestion, saveQuestionAnswer } from "../utils/api";
 
 export const GET_QUESTIONS = "GET_QUESTIONS";
 // Save the answers picked by other users for a specific question
-export const SAVE_QUESTIONS_ANSWERS = "SAVE_QUESTIONS_ANSWERS";
+export const ADD_QUESTIONS_ANSWERS = "ADD_QUESTIONS_ANSWERS";
 // Add new questions
 export const ADD_QUESTIONS = "ADD_QUESTIONS";
+
+export const ADD_ANSWERS_TO_USERS = "ADD_ANSWERS_TO_USERS";
 
 export function getQuestions(questions) {
   return {
@@ -14,9 +16,18 @@ export function getQuestions(questions) {
   };
 }
 
-export function saveQuestionAnswers({ authedUser, qid, answer }) {
+export function addQuestionAnswers({ authedUser, qid, answer }) {
   return {
-    type: SAVE_QUESTIONS_ANSWERS,
+    type: ADD_QUESTIONS_ANSWERS,
+    authedUser,
+    qid,
+    answer
+  };
+}
+
+export function addAnswersToUsers({ authedUser, qid, answer }) {
+  return {
+    type: ADD_ANSWERS_TO_USERS,
     authedUser,
     qid,
     answer
@@ -30,10 +41,12 @@ export function addQuestions(question) {
   };
 }
 
+// answer could be option 1 or option 2
 export function handleSaveQuestionAnswers({ authedUser, qid, answer }) {
   return dispatch => {
     saveQuestionAnswer({ authedUser, qid, answer }).then(() =>
-      dispatch(saveQuestionAnswers({ authedUser, qid, answer }))
+      dispatch(addQuestionAnswers({ authedUser, qid, answer })),
+      dispatch(addAnswersToUsers({ authedUser, qid, answer }))
     );
   };
 }
