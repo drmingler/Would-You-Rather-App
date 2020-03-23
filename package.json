@@ -34,6 +34,7 @@
     ]
   },
   "devDependencies": {
+    "react-redux": "^7.2.0",
     "react-redux-loading": "^1.0.1"
   }
 }
