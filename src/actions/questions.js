@@ -30,9 +30,10 @@ export function addQuestions(question) {
   };
 }
 
-export function handleAddQuestions({ optionOneText, optionTwoText }) {
+export function handleAddQuestions({ optionOneText, optionTwoText, authedUser }) {
   return (dispatch, getState) => {
-    const { authedUser } = getState();
+    // const { authedUser } = getState();
+    // console.log(authedUser)
     dispatch(showLoading());
     saveQuestion({
       optionOneText,

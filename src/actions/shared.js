@@ -2,7 +2,7 @@ import { addAnswersToUsers,getUsers } from "./users";
 import { addQuestionVote, getQuestions } from "./questions";
 import { showLoading, hideLoading } from "react-redux-loading";
 import { getInitialData, saveQuestionAnswer } from "../utils/api";
-import { logout } from "./authUser";
+// import { logOut } from "./authUser";
 
 export function handleInitialData() {
   return dispatch => {
@@ -10,7 +10,7 @@ export function handleInitialData() {
     getInitialData().then(({ users, questions }) => {
       dispatch(getUsers(users));
       dispatch(getQuestions(questions));
-      dispatch(logout());
+      // dispatch(logOut());
       dispatch(hideLoading());
     });
   };

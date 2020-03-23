@@ -8,7 +8,7 @@ export function setAuthUser(userId) {
   };
 }
 
-export function logout() {
+export function logOut() {
   return {
     type: LOGOUT
   };

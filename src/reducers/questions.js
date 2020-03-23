@@ -1,7 +1,7 @@
 import {
   GET_QUESTIONS,
   ADD_QUESTIONS_VOTE,
-  ADD_QUESTIONS,
+  ADD_QUESTIONS
 } from "../actions/questions";
 
 export default function questions(state = {}, action) {
@@ -12,17 +12,25 @@ export default function questions(state = {}, action) {
         ...action.questions
       };
     case ADD_QUESTIONS_VOTE:
-
+      const vote = [...state[action.qid][action.answer].votes];
       return {
         ...state,
         [action.qid]: {
           ...state[action.qid],
-          [action.answer] : {
+          [action.answer]: {
             ...state[action.qid][action.answer],
-            votes: [...state[action.qid][action.answer].votes].concat([action.authedUser])
+            votes: vote.includes(action.authedUser)
+              ? vote
+              : vote.concat([action.authedUser])
           }
         }
       };
+    case ADD_QUESTIONS:
+      return {
+        ...state,
+        [action.question.id]: {...action.question}
+      };
+
 
     default:
       return state;
