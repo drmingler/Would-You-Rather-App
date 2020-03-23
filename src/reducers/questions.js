@@ -27,6 +27,14 @@ export default function questions(state = {}, action) {
 
     case ADD_ANSWERS_TO_USERS:
       return{
+          ...state,
+          [action.authedUser] : {
+            ...state[action.authedUser],
+            answers : {
+              ...state[action.authedUser].answers,
+              [action.qid] : action.answer
+            }
+          }
 
       };
     default:
