@@ -5,3 +5,5 @@ const logger = store => next => action => {
     console.log(store.getState());
     return returnValue
 };
+
+export default logger;
