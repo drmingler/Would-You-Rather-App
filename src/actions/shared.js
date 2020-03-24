@@ -33,7 +33,7 @@ export function handleAddQuestions({
   optionTwoText,
   authedUser
 }) {
-  return dispatch => {
+  return (dispatch)=> {
     dispatch(showLoading());
     saveQuestion({
       optionOneText,
