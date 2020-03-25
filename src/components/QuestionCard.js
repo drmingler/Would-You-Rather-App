@@ -13,7 +13,7 @@ class QuestionCard extends React.Component {
     this.props.dispatch(
       handleSaveQuestionAnswers({ authedUser, qid, ...answer })
     );
-    // Redirect to homepage
+    // Redirect to poll with question id result page
   };
 
   render() {
@@ -67,4 +67,3 @@ function mapStateToProps({ questions, users, authUser }) {
 }
 
 export default connect(mapStateToProps)(QuestionCard);
-
