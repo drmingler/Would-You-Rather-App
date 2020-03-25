@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import serializeForm from "form-serialize";
 import {handleAddQuestions} from "../actions/shared"
-class QuestionCard extends React.Component {
+class CreateQuestion extends React.Component {
   handleSubmit = e => {
     const {user, dispatch} = this.props;
     e.preventDefault();
@@ -54,4 +54,4 @@ class QuestionCard extends React.Component {
 function mapStateToProps({ authUser }) {
   return { user: authUser };
 }
-export default connect(mapStateToProps)(QuestionCard);
+export default connect(mapStateToProps)(CreateQuestion);

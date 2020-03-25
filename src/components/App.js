@@ -1,7 +1,7 @@
 import React from "react";
 import { handleInitialData } from "../actions/shared";
 import { connect } from "react-redux";
-import QuestionCard from "./QuestionCard";
+import QuestionCard from "./CreateQuestion";
 // import { handleSaveQuestionAnswers, handleAddQuestions } from "../actions/shared";
 //import NavBar from "./Navbar";
 //import { BrowserRouter as Router } from "react-router-dom";
