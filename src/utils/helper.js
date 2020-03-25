@@ -1,10 +1,10 @@
-export function formatQuestions(question){
-    const {author, optionOne, optionTwo} = question;
-    return {
-        author : author,
-        optionOne : optionOne.text,
-        optionTwo : optionTwo.text,
-    }
+export function formatQuestions(question) {
+  const { author, optionOne, optionTwo } = question;
+  return {
+    author: author,
+    optionOne: optionOne.text,
+    optionTwo: optionTwo.text
+  };
 }
 
 export function formatQuestionsResult(question, authuser) {
@@ -14,20 +14,24 @@ export function formatQuestionsResult(question, authuser) {
   const TotalVotes = optionOnevotes + optionTwovotes;
   const optionOnePercentage = (optionOnevotes * 100) / TotalVotes;
   const optionTwoPercentage = 100 - optionOnePercentage;
-  const userChoice = optionOne.votes.includes(authuser)? "optionOne" : "optionTwo";
+  const userChoice = optionOne.votes.includes(authuser)
+    ? "optionOne"
+    : "optionTwo";
   return [
     {
+      id: "optionOne",
       text: optionOne.text,
       votes: optionOnevotes,
       percentage: optionOnePercentage,
-      Total : TotalVotes,
+      total: TotalVotes,
       userChoice: userChoice === "optionOne" ? "optionOne" : null
     },
     {
+      id: "optionTwo",
       text: optionTwo.text,
       votes: optionTwovotes,
       percentage: optionTwoPercentage,
-      Total : TotalVotes,
+      total: TotalVotes,
       userChoice: userChoice === "optionTwo" ? "optionOne" : null
     }
   ];
