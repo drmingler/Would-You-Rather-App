@@ -7,11 +7,10 @@ import questions from "./questions";
 
 
 export default combineReducers({
-    users: users,
-    authUser: authUser,
-    questions : questions,
+    users,
+    authUser,
+    questions,
     loadingBar : loadingBarReducer
-
 });
 
 

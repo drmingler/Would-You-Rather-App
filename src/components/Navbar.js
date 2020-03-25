@@ -15,12 +15,12 @@ class NavBar extends React.Component {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/" activeClassName="active">
+              <NavLink to="/NewQuestion" activeClassName="active">
                 New Question
               </NavLink>
             </li>
             <li>
-              <NavLink to="/" activeClassName="active">
+              <NavLink to="/LeaderBoard" activeClassName="active">
                 Leader Board
               </NavLink>
             </li>

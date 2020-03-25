@@ -1,9 +1,10 @@
 import React from "react";
 import { handleInitialData } from "../actions/shared";
 import { connect } from "react-redux";
+import LoginPage from "./LoginPage";
 // import { handleSaveQuestionAnswers, handleAddQuestions } from "../actions/shared";
-import NavBar from "./Navbar";
-import { BrowserRouter as Router } from "react-router-dom";
+//import NavBar from "./Navbar";
+//import { BrowserRouter as Router } from "react-router-dom";
 
 
 class App extends React.Component {
@@ -23,17 +24,16 @@ class App extends React.Component {
   //     }))
   // }
   //  <button onClick={() => this.update()}> click me</button>
-  componentDidMount() {
+  componentDidMount(){
     this.props.dispatch(handleInitialData());
   }
 
   render() {
     return (
-        <Router>
       <div className="App">
-        <NavBar/>
+        <LoginPage/>
       </div>
-        </Router>
+
     );
   }
 }
