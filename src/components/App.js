@@ -2,6 +2,7 @@ import React from "react";
 import { handleInitialData } from "../actions/shared";
 import { connect } from "react-redux";
 import QuestionCard from "./QuestionCard";
+import PollResultCard from "./PollResultCard";
 // import { handleSaveQuestionAnswers, handleAddQuestions } from "../actions/shared";
 //import NavBar from "./Navbar";
 //import { BrowserRouter as Router } from "react-router-dom";
@@ -31,7 +32,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <QuestionCard/>
+        <PollResultCard/>
       </div>
 
     );
