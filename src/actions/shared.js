@@ -11,7 +11,7 @@ export function handleInitialData() {
     getInitialData().then(({ users, questions }) => {
       dispatch(getUsers(users));
       dispatch(getQuestions(questions));
-      dispatch(setAuthUser("sarahedo"))
+      dispatch(setAuthUser("sarahedo"));
       // dispatch(logOut());
       dispatch(hideLoading());
     });

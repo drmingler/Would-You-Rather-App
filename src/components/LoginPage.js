@@ -28,7 +28,7 @@ class LoginPage extends React.Component {
           <h1>Login Page</h1>
           <form onSubmit={this.handleSubmit}>
             <select onChange={this.handleChange}>
-              <option >Select A User</option>
+              <option>Select A User</option>
               {Object.keys(users).map(user => (
                 <option
                   key={users[user].id}
