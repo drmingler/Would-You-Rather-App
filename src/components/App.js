@@ -1,7 +1,7 @@
 import React from "react";
 import { handleInitialData } from "../actions/shared";
 import { connect } from "react-redux";
-import LoginPage from "./LoginPage";
+import QuestionCard from "./QuestionCard";
 // import { handleSaveQuestionAnswers, handleAddQuestions } from "../actions/shared";
 //import NavBar from "./Navbar";
 //import { BrowserRouter as Router } from "react-router-dom";
@@ -31,7 +31,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <LoginPage/>
+        <QuestionCard/>
       </div>
 
     );
