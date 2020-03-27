@@ -22,7 +22,7 @@ export function formatQuestionsResult(question, authuser) {
       id: "optionOne",
       text: optionOne.text,
       votes: optionOnevotes,
-      percentage: optionOnePercentage,
+      percentage: optionOnePercentage.toFixed(2),
       total: TotalVotes,
       userChoice: userChoice === "optionOne" ? "optionOne" : null
     },
@@ -30,7 +30,7 @@ export function formatQuestionsResult(question, authuser) {
       id: "optionTwo",
       text: optionTwo.text,
       votes: optionTwovotes,
-      percentage: optionTwoPercentage,
+      percentage: optionTwoPercentage.toFixed(2),
       total: TotalVotes,
       userChoice: userChoice === "optionTwo" ? "optionOne" : null
     }

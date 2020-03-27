@@ -2,18 +2,27 @@ import React from "react";
 import PollResultCard from "./PollResultCard";
 import { formatQuestionsResult } from "../utils/helper";
 import { connect } from "react-redux";
+// import {Redirect} from "react-router-dom";
 
 // I need to get the question id from the route
 class PollResult extends React.Component {
+
   render() {
-    const { authorName, picture, pollResults } = this.props;
+    const { user } = this.props;
+    if (user === null) {
+      return null
+    // return <Redirect to={"/error"}/>
+
+      }
+    const { pollResults } = this.props;
+    const { name, avatarURL } = user;
     return (
       <div>
-        <h2>{`Asked By ${authorName}`}</h2>
+        <h2>{`Asked By ${name}`}</h2>
         <div>
           <h2>Result</h2>
           <div>
-            <p>{picture}</p>
+            <p>{avatarURL}</p>
           </div>
           <ul>
             {pollResults &&
@@ -30,16 +39,11 @@ class PollResult extends React.Component {
 }
 
 // I will index the questions with the question Id gotten from the route
-function mapStateToProps({ users, questions, authUser }) {
-  const question = questions["vthrdm985a262al8qx3do"];
-  // Just for testing purpose
-  if (!question) {
-    return {};
-  }
-  const { name, avatarURL } = users[question.author];
+function mapStateToProps({ users, questions, authUser }, props) {
+  const { qid } = props.match.params;
+  const question = questions[qid];
   return {
-    authorName: name,
-    picture: avatarURL,
+    user: question ? users[question.author] : null,
     pollResults: question ? formatQuestionsResult(question, authUser) : null
   };
 }

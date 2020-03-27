@@ -14,10 +14,14 @@ class QuestionCard extends React.Component {
       handleSaveQuestionAnswers({ authedUser, qid, ...answer })
     );
     // Redirect to poll with question id result page
+    this.props.history.push(`/poll/${qid}`);
+
+    // console.log(Object.keys(users[authedUser].answers).includes(qid));
   };
 
   render() {
     const { question, users } = this.props;
+    // TESTING PURPOSE
     if (question === null) {
       return null;
     }
