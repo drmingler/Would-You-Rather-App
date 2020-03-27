@@ -49,6 +49,18 @@ export function questionChoiceCard(questionId, questions, users) {
   };
 }
 
+export function formatScoreCard(users) {
+  return Object.keys(users)
+    .map(user => {
+      const { answers, questions, name } = users[user];
+      const noOfAnsweredQuestion = Object.keys(answers).length;
+      const noOfAskedQuestion = questions.length;
+      const totalScore = noOfAnsweredQuestion + noOfAskedQuestion;
+      return { name, totalScore, noOfAnsweredQuestion, noOfAskedQuestion, user};
+    })
+    .sort((a, b) => b.totalScore - a.totalScore);
+}
+
 // console.log(questionChoiceCard("loxhs1bqm25b708cmbf3g", questions,users ));
 
 // let users = {

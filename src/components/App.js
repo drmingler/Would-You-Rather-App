@@ -7,7 +7,7 @@ import Error from "./Error";
 import QuestionChoiceCard from "./QuestionChoiceCard";
 import Dashboard from "./Dashboard";
 import LoginPage from "./LoginPage";
-import ScoreCard from "./ScoreCard";
+import LeaderBoard from "./LeaderBoard";
 
 class App extends React.Component {
   componentDidMount() {
@@ -23,7 +23,7 @@ class App extends React.Component {
           <Route path="/poll/:qid"   component={PollResult} />
           <Route path={"/error"} component={Error}/>
           <Route path={"/test"} component={QuestionChoiceCard}/>
-          <Route path={"/score"} component={ScoreCard}/>
+          <Route path={"/leader"} component={LeaderBoard}/>
 
         </div>
       </Router>
