@@ -1,5 +1,6 @@
 import React from "react";
-import AnsweredQuestion from "./AnsweredQuestion";
+import AnsweredQuestions from "./AnsweredQuestions";
+import UnAnsweredQuestions from "./UnAnsweredQuestions";
 
 // NEEDs the  user and questions from the connect
 
@@ -9,11 +10,11 @@ class Dashboard extends React.Component {
             <div>
                 <div>
                     <h1>Answered Questions</h1>
-                    <AnsweredQuestion/>
+                    <AnsweredQuestions/>
                 </div>
                 <div>
                     <h1>UnAnswered Questions</h1>
-                    <AnsweredQuestion/>
+                    <UnAnsweredQuestions/>
                 </div>
             </div>
         );

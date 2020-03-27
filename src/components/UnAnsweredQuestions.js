@@ -3,7 +3,7 @@ import QuestionChoiceCard from "./QuestionChoiceCard";
 
 // NEEDs the ids of answered questions
 
-class AnsweredQuestion extends React.Component {
+class UnAnsweredQuestions extends React.Component {
     render() {
         return (
             <div>
@@ -17,4 +17,4 @@ class AnsweredQuestion extends React.Component {
     }
 }
 
-export default AnsweredQuestion;
+export default UnAnsweredQuestions;
