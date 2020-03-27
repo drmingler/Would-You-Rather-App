@@ -16,3 +16,5 @@ class AnsweredQuestion extends React.Component {
         );
     }
 }
+
+export default AnsweredQuestion;
