@@ -20,17 +20,16 @@ class QuestionCard extends React.Component {
   };
 
   render() {
-    const { question, users } = this.props;
+    const { question } = this.props;
     // TESTING PURPOSE
     if (question === null) {
       return null;
     }
     const { author, optionOne, optionTwo } = question;
-    const authorName = users[author].name;
 
     return (
       <div>
-        <h1>{`${authorName} asks`}</h1>
+        <h1>{`${author} asks`}</h1>
         <div>
           <h1>Would You Rather</h1>
           <form onSubmit={this.handleSubmit}>
@@ -65,8 +64,7 @@ function mapStateToProps({ questions, users, authUser }) {
   return {
     qid: "vthrdm985a262al8qx3do",
     authedUser: authUser,
-    users,
-    question: question ? formatQuestions(question) : null
+    question: question ? formatQuestions(question, users) : null
   };
 }
 

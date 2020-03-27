@@ -54,7 +54,10 @@ body {
   padding: 20px;
 }
 
-.pollcard-container{
+.choice-card-container, .pollcard-container{
   border: thin solid black;
   width: 40%;
+}
+.choice-card-container{
+  padding: 20px;
 }

@@ -5,6 +5,8 @@ import PollResult from "./PollResult";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import QuestionCard from "./QuestionCard";
 import Error from "./Error";
+import QuestionChoiceCard from "./QuestionChoiceCard";
+
 class App extends React.Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData());
@@ -15,8 +17,9 @@ class App extends React.Component {
       <Router>
         <div className="App">
           <Route path="/" exact component={QuestionCard} />
-          <Route path="/poll/:qid"  exact component={PollResult} />
+          <Route path="/poll/:qid"   component={PollResult} />
           <Route path={"/error"} component={Error}/>
+          <Route path={"/test"} component={QuestionChoiceCard}/>
 
         </div>
       </Router>
