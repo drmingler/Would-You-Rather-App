@@ -6,6 +6,16 @@ import { connect } from "react-redux";
 // NEEDs the  user and questions from the connect
 
 class Dashboard extends React.Component {
+  state = {
+    showAnswered: "showAnswered"
+  };
+
+  handleClick = e => {
+    this.setState(prevState => ({
+      showAnswered: e
+    }));
+  };
+
   render() {
     const { users, user, questions } = this.props;
     // For Testing Purpose
@@ -19,22 +29,38 @@ class Dashboard extends React.Component {
 
     return (
       <div>
-        <div>
-          <h1>Answered Questions</h1>
-          <AnsweredQuestions
-            questionIds={answeredQid}
-            questions={questions}
-            users={users}
-          />
+        <div className={"dashbord-container"}>
+          <div
+            className={"answered-header"}
+            onClick={() => this.handleClick("showAnswered")}
+          >
+            <h1>Answered Questions</h1>
+          </div>
+          <div
+            className={"unanswer-header"}
+            onClick={() => this.handleClick("showUnAnswered")}
+          >
+            <h1>UnAnswered Questions</h1>
+          </div>
         </div>
-        <div>
-          <h1>UnAnswered Questions</h1>
-          <UnAnsweredQuestions
-            questionIds={unansweredQid}
-            questions={questions}
-            users={users}
-          />
-        </div>
+
+        {this.state.showAnswered === "showAnswered" ? (
+          <div>
+            <AnsweredQuestions
+              questionIds={answeredQid}
+              questions={questions}
+              users={users}
+            />
+          </div>
+        ) : (
+          <div>
+            <UnAnsweredQuestions
+              questionIds={unansweredQid}
+              questions={questions}
+              users={users}
+            />
+          </div>
+        )}
       </div>
     );
   }

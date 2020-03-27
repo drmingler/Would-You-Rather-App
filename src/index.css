@@ -12,23 +12,21 @@ body {
   vertical-align: middle;
 }
 
-.avatar-name{
+.avatar-name {
   font-weight: bold;
 }
 
-.nav-container{
+.nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.nav-links{
+.nav-links {
   display: flex;
-
-
 }
 
-.form-container{
+.form-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -36,7 +34,7 @@ body {
   height: 400px;
 }
 
-.question-form{
+.question-form {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -44,21 +42,31 @@ body {
   height: 800px;
 }
 
-.question-form-container{
+.question-form-container {
   border: thin solid black;
   width: 50%;
   height: 50%;
 }
-.test{
+.test {
   align-content: center;
   padding: 20px;
 }
 
-.choice-card-container, .pollcard-container{
+.choice-card-container,
+.pollcard-container,
+.scorecard-container {
   border: thin solid black;
   width: 40%;
   margin: 10px;
 }
-.choice-card-container{
+.choice-card-container {
   padding: 20px;
+}
+.dashbord-container {
+  display: flex;
+}
+.answered-header,
+.unanswer-header {
+  border: thin solid black;
+  padding: 5px;
 }

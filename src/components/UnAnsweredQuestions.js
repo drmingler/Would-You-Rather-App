@@ -5,7 +5,6 @@ import { questionChoiceCard } from "../utils/helper";
 
 class UnAnsweredQuestions extends React.Component {
   render() {
-    console.log("I am here ", this.props);
     const { questionIds, questions, users } = this.props;
     return (
       <div>
