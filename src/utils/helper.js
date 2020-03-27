@@ -38,6 +38,19 @@ export function formatQuestionsResult(question, authuser) {
   ];
 }
 
+export function questionChoiceCard(questionId, questions, users) {
+  const { author, optionOne } = questions[questionId];
+  const user = users[author];
+  const { name, avatarURL } = user;
+  return {
+    author: name,
+    optionOneText: optionOne.text,
+    avatar: avatarURL
+  };
+}
+
+// console.log(questionChoiceCard("loxhs1bqm25b708cmbf3g", questions,users ));
+
 // let users = {
 //   sarahedo: {
 //     id: "sarahedo",
@@ -154,27 +167,3 @@ export function formatQuestionsResult(question, authuser) {
 //     }
 //   }
 // };
-
-// [
-// '8xf0y6ziyjabvozdd253nd',
-//     '6ni6ok3ym7mf1p33lnez',
-//     'am8ehyc8byjqgar0jgpub9',
-//     'loxhs1bqm25b708cmbf3g'
-// ]
-// [
-// '8xf0y6ziyjabvozdd253nd',
-//     '6ni6ok3ym7mf1p33lnez',
-//     'am8ehyc8byjqgar0jgpub9',
-//     'loxhs1bqm25b708cmbf3g',
-//     'vthrdm985a262al8qx3do',
-//     'xj352vofupe1dqz9emx13r'
-// ]
-
-// function unAnswered(user, questions) {
-//   const answersKey = Object.keys(user.answers);
-//   const questionKeys = Object.keys(questions);
-//   const result = questionKeys.filter(key => !answersKey.includes(key));
-//   return { answeredQuestions: questionKeys, unAnsweredQuestion: result };
-// }
-//
-// console.log(unAnswered(users["sarahedo"], questions));

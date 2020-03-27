@@ -4,16 +4,14 @@ import { formatQuestionsResult } from "../utils/helper";
 import { connect } from "react-redux";
 // import {Redirect} from "react-router-dom";
 
-// I need to get the question id from the route
-class PollResult extends React.Component {
 
+class PollResult extends React.Component {
   render() {
     const { user } = this.props;
     if (user === null) {
-      return null
-    // return <Redirect to={"/error"}/>
-
-      }
+      return null;
+      // return <Redirect to={"/error"}/>
+    }
     const { pollResults } = this.props;
     const { name, avatarURL } = user;
     return (

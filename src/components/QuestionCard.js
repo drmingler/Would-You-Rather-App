@@ -20,6 +20,7 @@ class QuestionCard extends React.Component {
   };
 
   render() {
+
     const { question } = this.props;
     // TESTING PURPOSE
     if (question === null) {
