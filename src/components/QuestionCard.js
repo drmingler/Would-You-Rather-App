@@ -3,7 +3,7 @@ import { formatQuestions } from "../utils/helper";
 import { connect } from "react-redux";
 import { handleSaveQuestionAnswers } from "../actions/shared";
 import serializeForm from "form-serialize";
-import {Redirect} from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 // I need a the asking user ID as a Prop and question ID  from  the route of the Answered And unAnswered component
 class QuestionCard extends React.Component {
@@ -19,10 +19,14 @@ class QuestionCard extends React.Component {
   };
 
   render() {
-    const { question,authedUser } = this.props;
+    const { question, authedUser, voted } = this.props;
     // TESTING PURPOSE
     if (!authedUser) {
       return <Redirect to={"/login"} />;
+    }
+
+    if (voted === true) {
+      return <Redirect to={"/"} />;
     }
     const { author, optionOne, optionTwo } = question;
 
@@ -59,13 +63,19 @@ class QuestionCard extends React.Component {
 
 function mapStateToProps({ questions, users, authUser }, props) {
   const { question_id } = props.match.params;
-  console.log(question_id);
-  // I will add the questionId later questions[questionId]
-  const question = question_id ? questions[question_id] : null;
+  // Check if user has voted already
+  const voted = authUser
+    ? Object.keys(users[authUser].answers).includes(question_id)
+    : null;
+
   return {
     qid: question_id,
     authedUser: authUser,
-    question: question ? formatQuestions(question, users) : null
+    question:
+      Object.keys(questions).length !== 0
+        ? formatQuestions(questions[question_id], users)
+        : null,
+    voted
   };
 }
 
