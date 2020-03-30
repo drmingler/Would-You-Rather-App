@@ -12,6 +12,7 @@ class LoginPage extends React.Component {
     if(choice){
       this.props.dispatch(setAuthUser(choice))
       // Redirect to homepage
+      this.props.history.push("/");
     }
 
   };

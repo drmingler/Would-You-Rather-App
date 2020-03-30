@@ -2,15 +2,15 @@ import React from "react";
 import PollResultCard from "./PollResultCard";
 import { formatQuestionsResult } from "../utils/helper";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 // import {Redirect} from "react-router-dom";
-
 
 class PollResult extends React.Component {
   render() {
-    const { user } = this.props;
-    if (user === null) {
-      return null;
-      // return <Redirect to={"/error"}/>
+    const { user, authUser } = this.props;
+    // TESTING
+    if (!authUser) {
+      return <Redirect to={"/login"} />;
     }
     const { pollResults } = this.props;
     const { name, avatarURL } = user;
@@ -38,9 +38,10 @@ class PollResult extends React.Component {
 
 // I will index the questions with the question Id gotten from the route
 function mapStateToProps({ users, questions, authUser }, props) {
-  const { qid } = props.match.params;
-  const question = questions[qid];
+  const { question_id } = props.match.params;
+  const question = questions[question_id];
   return {
+    authUser,
     user: question ? users[question.author] : null,
     pollResults: question ? formatQuestionsResult(question, authUser) : null
   };

@@ -2,12 +2,14 @@ import React from "react";
 import { handleInitialData } from "../actions/shared";
 import { connect } from "react-redux";
 import PollResult from "./PollResult";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Error from "./Error";
-import QuestionChoiceCard from "./QuestionChoiceCard";
 import Dashboard from "./Dashboard";
 import LoginPage from "./LoginPage";
 import LeaderBoard from "./LeaderBoard";
+import CreateQuestion from "./CreateQuestion";
+import Navbar from "./Navbar";
+import QuestionCard from "./QuestionCard";
 
 class App extends React.Component {
   componentDidMount() {
@@ -18,13 +20,17 @@ class App extends React.Component {
     return (
       <Router>
         <div className="App">
-          <Route path="/" exact component={LoginPage} />
-          <Route path="/dashboard" exact component={Dashboard} />
-          <Route path="/poll/:qid"   component={PollResult} />
-          <Route path={"/error"} component={Error}/>
-          <Route path={"/test"} component={QuestionChoiceCard}/>
-          <Route path={"/leader"} component={LeaderBoard}/>
 
+          <Navbar/>
+          <Switch>
+          <Route path="/login" exact component={LoginPage} />
+          <Route path="/" exact component={Dashboard} />
+          <Route path="/poll/:question_id"   component={PollResult} />
+          <Route path={"/questions/:question_id"} component={QuestionCard}/>
+          <Route path={"/leaderboard"} component={LeaderBoard}/>
+          <Route path={"/add"} component={CreateQuestion}/>
+          <Route path={"*"} component={Error} />
+          </Switch>
         </div>
       </Router>
     );

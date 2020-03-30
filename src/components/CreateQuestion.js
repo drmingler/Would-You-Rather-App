@@ -2,17 +2,25 @@ import React from "react";
 import { connect } from "react-redux";
 import serializeForm from "form-serialize";
 import {handleAddQuestions} from "../actions/shared"
+import {Redirect} from "react-router-dom";
+
 
 class CreateQuestion extends React.Component {
   handleSubmit = e => {
-    const {user, dispatch} = this.props;
+    const {authUser, dispatch} = this.props;
     e.preventDefault();
     const result = serializeForm(e.target, { hash: true });
     // Use the spread operator to pass the question from the result object
-    dispatch(handleAddQuestions({ ...result, authedUser: user }));
+    dispatch(handleAddQuestions({ ...result, authedUser: authUser }));
     // redirect to homepage
+    this.props.history.push('/')
+
   };
   render() {
+    const {authUser} = this.props;
+    if (!authUser) {
+      return <Redirect to={"/login"} />;
+    }
     return (
       <div>
         <div className={"question-form"}>
@@ -53,6 +61,6 @@ class CreateQuestion extends React.Component {
 }
 // To return the authorized user setting the question
 function mapStateToProps({ authUser }) {
-  return { user: authUser };
+  return { authUser };
 }
 export default connect(mapStateToProps)(CreateQuestion);

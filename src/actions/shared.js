@@ -2,7 +2,7 @@ import { addQuestionIdToUsers, addAnswersToUsers, getUsers } from "./users";
 import { addQuestion, addQuestionVote, getQuestions } from "./questions";
 import { showLoading, hideLoading } from "react-redux-loading";
 import { getInitialData, saveQuestion, saveQuestionAnswer } from "../utils/api";
-import {setAuthUser} from "./authUser";
+// import {setAuthUser} from "./authUser";
 // import { logOut } from "./authUser";
 
 export function handleInitialData() {
@@ -11,7 +11,7 @@ export function handleInitialData() {
     getInitialData().then(({ users, questions }) => {
       dispatch(getUsers(users));
       dispatch(getQuestions(questions));
-      dispatch(setAuthUser("sarahedo"));
+      // dispatch(setAuthUser("sarahedo"));
       // dispatch(logOut());
       dispatch(hideLoading());
     });

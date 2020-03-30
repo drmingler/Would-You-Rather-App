@@ -4,7 +4,8 @@ import NavBarAvatar from "./NavbarAvatar";
 import { connect } from "react-redux";
 class NavBar extends React.Component {
   render() {
-   const {user} = this.props
+    const { user } = this.props;
+    console.log(user);
     return (
       <div>
         <nav className={"nav-container"}>
@@ -15,27 +16,32 @@ class NavBar extends React.Component {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/NewQuestion" activeClassName="active">
+              <NavLink to="/add" activeClassName="active">
                 New Question
               </NavLink>
             </li>
             <li>
-              <NavLink to="/LeaderBoard" activeClassName="active">
+              <NavLink to="/leaderboard" activeClassName="active">
                 Leader Board
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/logout" activeClassName="active">
+                Logout
+              </NavLink>
+            </li>
           </ul>
-          {user && (<NavBarAvatar />)}
+          {user && <NavBarAvatar />}
         </nav>
       </div>
     );
   }
 }
 //
-function mapStateToProps({users, authedUser}) {
+function mapStateToProps({ users, authedUser }) {
   const loggedInUser = authedUser ? users[authedUser] : null;
- return {
-   user: loggedInUser
- };
+  return {
+    user: loggedInUser
+  };
 }
 export default connect(mapStateToProps)(NavBar);

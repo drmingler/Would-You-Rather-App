@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 class QuestionChoiceCard extends React.Component {
   render() {
     const { author, optionOneText, avatar } = this.props.questionChoice;
+
     return (
       <div className={"choice-card-container"}>
         <h2>{`${author} Ask:`}</h2>

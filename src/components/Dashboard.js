@@ -2,12 +2,13 @@ import React from "react";
 import AnsweredQuestions from "./AnsweredQuestions";
 import UnAnsweredQuestions from "./UnAnsweredQuestions";
 import { connect } from "react-redux";
-
+import { Redirect } from "react-router-dom";
+import { sortQuestions } from "../utils/helper";
 // NEEDs the  user and questions from the connect
 
 class Dashboard extends React.Component {
   state = {
-    showAnswered: "showAnswered"
+    showAnswered: "showUnAnswered"
   };
 
   handleClick = e => {
@@ -17,14 +18,15 @@ class Dashboard extends React.Component {
   };
 
   render() {
-    const { users, user, questions } = this.props;
+    const { users, user, questions, authUser } = this.props;
     // For Testing Purpose
-    if (!user) {
-      return null;
+    if (!authUser) {
+      return <Redirect to={"/login"} />;
     }
-    const answeredQid = Object.keys(user.answers);
-    const unansweredQid = Object.keys(questions).filter(
-      key => !answeredQid.includes(key)
+
+    const { unansweredQuestions, answeredQuestions } = sortQuestions(
+      questions,
+      user
     );
 
     return (
@@ -47,7 +49,7 @@ class Dashboard extends React.Component {
         {this.state.showAnswered === "showAnswered" ? (
           <div>
             <AnsweredQuestions
-              questionIds={answeredQid}
+              sortedQuestions={answeredQuestions}
               questions={questions}
               users={users}
             />
@@ -55,7 +57,7 @@ class Dashboard extends React.Component {
         ) : (
           <div>
             <UnAnsweredQuestions
-              questionIds={unansweredQid}
+              sortedQuestions={unansweredQuestions}
               questions={questions}
               users={users}
             />
@@ -71,7 +73,8 @@ function mapStateToProps({ users, questions, authUser }) {
   return {
     users,
     user: user,
-    questions
+    questions,
+    authUser
   };
 }
 export default connect(mapStateToProps)(Dashboard);

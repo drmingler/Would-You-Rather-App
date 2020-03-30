@@ -2,12 +2,17 @@ import React from "react";
 import { connect } from "react-redux";
 import { formatScoreCard } from "../utils/helper";
 import ScoreCard from "./ScoreCard";
+import {Redirect} from "react-router-dom";
 class LeaderBoard extends React.Component {
   render() {
-    const { users } = this.props;
-    console.log(users);
+    const { users, authUser } = this.props;
+
+    if (!authUser) {
+      return <Redirect to={"/login"} />;
+    }
     // const userScores = users ? formatScoreCard(users) : null;
     const userScores = formatScoreCard(users);
+    console.log(userScores)
     return (
       <div>
         <ul>
@@ -27,7 +32,7 @@ class LeaderBoard extends React.Component {
   }
 }
 
-function mapStateToProps({ users }) {
-  return { users };
+function mapStateToProps({ users, authUser }) {
+  return { users, authUser };
 }
 export default connect(mapStateToProps)(LeaderBoard);

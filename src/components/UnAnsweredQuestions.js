@@ -5,15 +5,15 @@ import { questionChoiceCard } from "../utils/helper";
 
 class UnAnsweredQuestions extends React.Component {
   render() {
-    const { questionIds, questions, users } = this.props;
+    const { sortedQuestions, questions, users } = this.props;
     return (
       <div>
         <ul>
-          {questionIds.map(qid => (
-            <li key={qid}>
+          {sortedQuestions.map(question => (
+            <li key={question.id}>
               <QuestionChoiceCard
-                questionChoice={questionChoiceCard(qid, questions, users)}
-                link = {`/question/${qid}`}
+                questionChoice={questionChoiceCard(question.id, questions, users)}
+                link = {`/questions/${question.id}`}
               />
             </li>
           ))}
