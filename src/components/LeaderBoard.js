@@ -12,7 +12,6 @@ class LeaderBoard extends React.Component {
     }
     // const userScores = users ? formatScoreCard(users) : null;
     const userScores = formatScoreCard(users);
-    console.log(userScores)
     return (
       <div>
         <ul>

@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import {setAuthUser} from "../actions/authUser"
+
+
 class LoginPage extends React.Component {
   state = {
     choice: ""
@@ -10,7 +12,7 @@ class LoginPage extends React.Component {
     e.preventDefault();
     const {choice} = this.state;
     if(choice){
-      this.props.dispatch(setAuthUser(choice))
+      this.props.dispatch(setAuthUser(choice));
       // Redirect to homepage
       this.props.history.push("/");
     }
@@ -26,6 +28,9 @@ class LoginPage extends React.Component {
     return (
       <div className={"form-container"}>
         <div>
+          <div className={"form-title"}>
+          <p>Title</p>
+          </div>
           <h1>Login Page</h1>
           <form onSubmit={this.handleSubmit}>
             <select onChange={this.handleChange}>
@@ -48,7 +53,7 @@ class LoginPage extends React.Component {
   }
 }
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ users },props) {
   return {
     users
   };

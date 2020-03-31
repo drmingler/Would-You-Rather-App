@@ -1,15 +1,20 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import NavBarAvatar from "./NavbarAvatar";
 import { connect } from "react-redux";
+import { logOut } from "../actions/authUser";
 class NavBar extends React.Component {
+  handleLogout = e => {
+    e.preventDefault();
+    const { dispatch } = this.props;
+    dispatch(logOut());
+  };
   render() {
-    const { user } = this.props;
-    console.log(user);
+    const { user, authUserInfo } = this.props;
     return (
       <div>
-        <nav className={"nav-container"}>
-          <ul className={"nav-links"}>
+        <nav>
+          <ul>
             <li>
               <NavLink to="/" exact activeClassName="active">
                 Home
@@ -25,23 +30,28 @@ class NavBar extends React.Component {
                 Leader Board
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/logout" activeClassName="active">
-                Logout
-              </NavLink>
-            </li>
+            {user ? (
+              <Fragment>
+                <li className={"avatar_container"}>
+                  <NavBarAvatar authUserDetails={authUserInfo} />
+                </li>
+                <li>
+                  <NavLink  onClick={this.handleLogout} to="/login" activeClassName="active">
+                    Logout
+                  </NavLink>
+                </li>
+              </Fragment>
+            ) : null}
           </ul>
-          {user && <NavBarAvatar />}
         </nav>
+        <div>{this.props.children}</div>
       </div>
     );
   }
 }
-//
-function mapStateToProps({ users, authedUser }) {
-  const loggedInUser = authedUser ? users[authedUser] : null;
-  return {
-    user: loggedInUser
-  };
+
+function mapStateToProps({ users }, { user }) {
+  const authUserInfo = user ? users[user] : null;
+  return { authUserInfo };
 }
 export default connect(mapStateToProps)(NavBar);

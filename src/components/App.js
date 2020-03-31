@@ -12,29 +12,34 @@ import Navbar from "./Navbar";
 import QuestionCard from "./QuestionCard";
 
 class App extends React.Component {
+
   componentDidMount() {
     this.props.dispatch(handleInitialData());
   }
-
+  //
   render() {
+    const {authUser} = this.props;
     return (
       <Router>
+        <Navbar user={authUser}>
         <div className="App">
-
-          <Navbar/>
           <Switch>
           <Route path="/login" exact component={LoginPage} />
           <Route path="/" exact component={Dashboard} />
           <Route path="/poll/:question_id"   component={PollResult} />
           <Route path={"/questions/:question_id"} component={QuestionCard}/>
-          <Route path={"/leaderboard"} component={LeaderBoard}/>
-          <Route path={"/add"} component={CreateQuestion}/>
+          <Route path={"/leaderboard"} exact component={LeaderBoard}/>
+          <Route path={"/add"} exact component={CreateQuestion}/>
           <Route path={"*"} component={Error} />
           </Switch>
         </div>
+        </Navbar>
       </Router>
     );
   }
 }
 
-export default connect()(App);
+function mapStateToProps({authUser}) {
+    return {authUser}
+}
+export default connect(mapStateToProps)(App);
