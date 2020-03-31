@@ -12,40 +12,41 @@ class NavBar extends React.Component {
   render() {
     const { user, authUserInfo } = this.props;
     return (
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <NavLink to="/" exact activeClassName="active">
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/add" activeClassName="active">
-                New Question
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/leaderboard" activeClassName="active">
-                Leader Board
-              </NavLink>
-            </li>
-            {user ? (
-              <Fragment>
-                <li className={"avatar_container"}>
-                  <NavBarAvatar authUserDetails={authUserInfo} />
-                </li>
-                <li>
-                  <NavLink  onClick={this.handleLogout} to="/login" activeClassName="active">
-                    Logout
-                  </NavLink>
-                </li>
-              </Fragment>
-            ) : null}
-          </ul>
-        </nav>
-        <div>{this.props.children}</div>
-      </div>
+      <nav>
+        <ul className={"navbar-container"}>
+          <li>
+            <NavLink to="/" exact activeClassName="active">
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/add" activeClassName="active">
+              New Question
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/leaderboard" activeClassName="active">
+              Leader Board
+            </NavLink>
+          </li>
+          {user ? (
+            <Fragment>
+              <li>
+                <NavBarAvatar authUserDetails={authUserInfo} />
+              </li>
+              <li>
+                <NavLink
+                  onClick={this.handleLogout}
+                  to="/login"
+                  activeClassName="active"
+                >
+                  Logout
+                </NavLink>
+              </li>
+            </Fragment>
+          ) : null}
+        </ul>
+      </nav>
     );
   }
 }

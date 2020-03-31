@@ -5,11 +5,11 @@ class NavBarAvatar extends React.Component {
     const { name, avatarURL } = this.props.authUserDetails;
 
     return (
-      <div>
+      <div className={"avatar-container"}>
         <div>
-          <span>{`Hello,  ${name} `}</span>
+          <p>{`Hello,  ${name} `}</p>
+          <img src={avatarURL} alt={`Avatar of ${name}`} className={"avatar"} />
         </div>
-          <img src={avatarURL}  alt={`Avatar of ${name}`} />
       </div>
     );
   }
