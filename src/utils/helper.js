@@ -1,3 +1,5 @@
+import React from "react";
+
 export function formatQuestions(question, users) {
   const { author, optionOne, optionTwo } = question;
   const authorName = users[author].name;
@@ -56,7 +58,6 @@ export function formatScoreCard(users) {
     .sort((a, b) => b.totalScore - a.totalScore);
 }
 
-
 export function questionChoiceCard(questionId, questions, users) {
   const { author, optionOne } = questions[questionId];
   const user = users[author];
@@ -79,7 +80,14 @@ export function sortQuestions(questions, user) {
   const answeredQuestions = sortedQuestion.filter(question =>
     answeredQuestionsId.includes(question.id)
   );
-  return {unansweredQuestions,answeredQuestions}
+  return { unansweredQuestions, answeredQuestions };
 }
 
-// console.log(answeredQid);
+export function loginDropDown(users) {
+  return Object.keys(users).map(user => ({
+    key: users[user].id,
+    text: users[user].name,
+    value: users[user].id,
+    image: { avatar: true, src: users[user].avatarURL }
+  }));
+}

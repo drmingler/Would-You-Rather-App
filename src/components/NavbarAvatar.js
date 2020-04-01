@@ -7,7 +7,7 @@ class NavBarAvatar extends React.Component {
     return (
       <div className={"avatar-container"}>
         <div>
-          <p>{`Hello,  ${name} `}</p>
+          <p className={"name"}>{`Hello,  ${name} `}</p>
           <img src={avatarURL} alt={`Avatar of ${name}`} className={"avatar"} />
         </div>
       </div>
@@ -17,5 +17,3 @@ class NavBarAvatar extends React.Component {
 
 export default NavBarAvatar;
 
-// <img src={avatarURL}  alt={`Avatar of ${name}`} className={"avatar"} />
-// <span>{`Hello,  ${name} `}</span>

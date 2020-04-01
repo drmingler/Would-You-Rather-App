@@ -3,94 +3,126 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   color: #252525;
+  text-align: center;
 }
-ul{
+
+li{
+  list-style: none;
+}
+ul {
   margin: 0;
 }
-.Container{
-  max-width: 1000px;
-  margin: 0 auto;
+.Container {
+  margin-top: 10px;
   padding: 0;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.navbar-container{
+.navbar-container {
   display: flex;
   flex-flow: wrap;
   justify-content: center;
   list-style: none;
   border-bottom: 2px solid #ca504f;
   /*border-bottom: 2px solid #9c4b5e;*/
-
-
 }
 
-.navbar-container a{
+.navbar-container a {
   text-decoration: none;
-  font-family: sans-serif;
   color: #252525;
   display: block;
   padding: 1em;
+  transition: all 500ms ease;
 }
 
-.navbar-container a:hover{
+.navbar-container a:hover {
   /*background: #9c4b5e;*/
   background: #ca504f;
   margin-bottom: 2px;
   margin-top: 10px;
   line-height: 10px;
   color: white;
-
 }
-
-.avatar-container p{
+p:first-child {
+  margin-top: 14px;
   margin-right: 70px;
   margin-left: 30px;
 }
+
 .avatar {
   height: 30px;
   border-radius: 25px;
-  margin-top: -40px;
+  margin-top: -38px;
   margin-right: 25px;
   border: 2px solid #ca504f;
   /*border: 2px solid #9c4b5e;*/
   float: right;
-
 }
 
-
-
-.form-title
 .form-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: 500px;
-  border: solid black;
-  text-align: center;
+  border: 1px solid black;
   width: 30%;
-
+  height: 500px;
 }
 
-.question-form {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: 800px;
+.form-title {
+  border-bottom: 1px solid black;
+  background: #e0e1e4;
+  padding: 20px;
+  margin-bottom: 40%;
+  font-weight: bold;
+  text-align: center;
 }
-
 .question-form-container {
   border: thin solid black;
   width: 50%;
   height: 50%;
 }
-.test {
-  align-content: center;
-  padding: 20px;
+
+.ui.button.form-button {
+  width: 80%;
+  background: #ca504f;
+  border-radius: 5px;
+  line-height: 20px;
+  font-weight: bolder;
+  font-size: 15px;
+  transition: all 500ms ease;
+  margin: 10px;
 }
+.ui.button.form-button:hover {
+  color: white;
+}
+.ui.selection.dropdown.login-dropdown {
+  width: 80%;
+  height: 20px;
+  margin: 10px auto;
+}
+
+.ui.selection.active.dropdown:hover {
+  border-color: #ca504f;
+}
+
+.login-form-title {
+  color: #ca504f;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .choice-card-container,
 .pollcard-container,
