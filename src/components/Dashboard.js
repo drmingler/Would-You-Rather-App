@@ -31,39 +31,38 @@ class Dashboard extends React.Component {
     );
 
     return (
-      <div>
-        <div className={"dashbord-container"}>
+      <div className={"grid-container"}>
           <div
             className={"answered-header"}
             onClick={() => this.handleClick("showAnswered")}
           >
-            <h1>Answered Questions</h1>
+            <h1 className={"dashoard-title"}>Answered Questions</h1>
           </div>
           <div
             className={"unanswer-header"}
             onClick={() => this.handleClick("showUnAnswered")}
           >
-            <h1>UnAnswered Questions</h1>
+            <h1 className={"dashoard-title"}>UnAnswered Questions</h1>
           </div>
+        <div className={"questions-cards-container"}>
+          {this.state.showAnswered === "showAnswered" ? (
+            <div>
+              <AnsweredQuestions
+                sortedQuestions={answeredQuestions}
+                questions={questions}
+                users={users}
+              />
+            </div>
+          ) : (
+            <div>
+              <UnAnsweredQuestions
+                sortedQuestions={unansweredQuestions}
+                questions={questions}
+                users={users}
+              />
+            </div>
+          )}
         </div>
-
-        {this.state.showAnswered === "showAnswered" ? (
-          <div>
-            <AnsweredQuestions
-              sortedQuestions={answeredQuestions}
-              questions={questions}
-              users={users}
-            />
-          </div>
-        ) : (
-          <div>
-            <UnAnsweredQuestions
-              sortedQuestions={unansweredQuestions}
-              questions={questions}
-              users={users}
-            />
-          </div>
-        )}
       </div>
     );
   }
