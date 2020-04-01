@@ -33,16 +33,24 @@ class Dashboard extends React.Component {
     return (
       <div className={"grid-container"}>
         <div
+          style={{
+            background:
+              this.state.showAnswered === "showAnswered" ? " #ca504f" : null
+          }}
           className={"answered-header"}
           onClick={() => this.handleClick("showAnswered")}
         >
           <h1 className={"dashoard-title"}>Answered Questions</h1>
         </div>
         <div
+          style={{
+            background:
+              this.state.showAnswered === "showUnAnswered" ? " #ca504f" : null
+          }}
           className={"unanswer-header"}
           onClick={() => this.handleClick("showUnAnswered")}
         >
-          <h1 className={"dashoard-title"}>UnAnswered Questions</h1>
+          <h1 className={"dashoard-title"}>Unanswered Questions</h1>
         </div>
         <div className={"questions-cards-container"}>
           <div className={"grid-item"}>

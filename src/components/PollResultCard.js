@@ -1,23 +1,37 @@
 import React from "react";
+import { Progress } from "semantic-ui-react";
 
 class PollResultCard extends React.Component {
   render() {
     const { pollResults } = this.props;
     return (
-      <div className={"pollcard-container"}>
-        {pollResults.userChoice && <p>Your Choice</p>}
-        <h3>{pollResults.text}</h3>
+      <div
+        className={"pollcard-container"}
+        style={
+          pollResults.userChoice
+            ? {
+                background: "rgba(202, 80, 79, 0.2)",
+                border: "1px solid #ca504f"
+              }
+            : null
+        }
+      >
+        <h3> {`Would you rather  ${pollResults.text}?`}</h3>
         <div>
-          <h3>{pollResults.percentage}</h3>
+          <Progress
+            percent={pollResults.percentage}
+            progress
+          />
         </div>
         <div>
-          <p>
+          <h4>
             {pollResults.votes} out of {pollResults.total}
-          </p>
+          </h4>
         </div>
       </div>
     );
   }
 }
+
 
 export default PollResultCard;

@@ -88,6 +88,7 @@ p:first-child {
   transition: all 500ms ease;
   margin: 10px;
 }
+.ui.button.vote-button:hover,
 .ui.button.form-button:hover,
 .ui.button.question-form-button:hover {
   color: white;
@@ -107,6 +108,7 @@ p:first-child {
 }
 
 .grid-container {
+  margin: 10px;
   display: grid;
   grid-template-columns: 50% 50%;
   /*grid-template-rows: auto;*/
@@ -153,8 +155,6 @@ p:first-child {
 .choice-card-avatar {
   height: 110px;
   border-radius: 50%;
-  /*border-style: solid;*/
-  /*border-color: #ca504f;*/
   width: 20%;
   float: left;
   margin: 20px;
@@ -207,19 +207,108 @@ p:first-child {
   border-bottom: thin solid #cfcdd0;
 }
 
-.question-form-container h3, .question {
+.question-form-container h3,
+.question {
   text-align: left;
   padding-left: 20px;
 }
 
-
+.ui.button.vote-button,
 .ui.button.question-form-button {
   background: #ca504f;
   width: 80%;
   margin: 40px;
 }
+.questioncard-container {
+  border-radius: 5px;
+  border: thin solid #cfcdd0;
+  width: 30%;
+}
+.poll-results-avatar,
+.questioncard-avatar img {
+  height: 170px;
+  border-radius: 50%;
+  width: 75%;
+  /*width: 170px;*/
+  margin: 20px;
+}
+.poll-results-avatar-container,
+.questioncard-avatar {
+  border-right: thin solid #cfcdd0;
+  flex-basis: 80%;
+}
 
-.pollcard-container,
+.questioncard-title {
+  border-bottom: thin solid #cfcdd0;
+  text-align: left;
+}
+
+
+.questioncard-title h1 {
+  font-size: 15px;
+  font-family: sans-serif;
+  padding: 10px;
+}
+.questioncard-flex-container {
+  display: flex;
+}
+.questioncard-flex-item1 h1{
+  padding: 15px;
+  text-align: left;
+}
+.questioncard-flex-item1 {
+  width: 100%;
+}
+
+.poll-result-container{
+  width: 40%;
+  border-radius: 5px;
+  border: thin solid #cfcdd0;
+}
+.poll-result-container h2{
+  text-align: left;
+  padding: 20px 0px 0px 10px;
+}
+.pollcard-title{
+  border-bottom: thin solid #cfcdd0;
+  text-align: left;
+}
+
+.pollcard-title h2 {
+  font-size: 15px;
+  font-family: sans-serif;
+  padding: 10px;
+}
+
+.poll-grid-container{
+  display: grid;
+  grid-template-columns: 35% 70%;
+  grid-template-rows: auto;
+}
+.poll-results-avatar{
+  height: 170px;
+  border-radius: 50%;
+  width: 75%;
+  margin-top: 50%;
+}
+
+.poll-results-avatar-container{
+  text-align: center;
+}
+
+
+.pollcard-container{
+  width: 80%;
+  border-radius: 5px;
+  border: thin solid #cfcdd0;
+  margin: 30px;
+  padding: 20px;
+}
+
+.ui.progress .bar{
+  background: #ca504f;
+
+}
 .scorecard-container {
   width: 40%;
   margin: 10px;

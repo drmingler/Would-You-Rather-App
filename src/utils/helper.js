@@ -2,9 +2,10 @@ import React from "react";
 
 export function formatQuestions(question, users) {
   const { author, optionOne, optionTwo } = question;
-  const authorName = users[author].name;
+  const { avatarURL, name } = users[author];
   return {
-    author: authorName,
+    avatar: avatarURL,
+    author: name,
     optionOne: optionOne.text,
     optionTwo: optionTwo.text
   };

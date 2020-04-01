@@ -15,21 +15,25 @@ class PollResult extends React.Component {
     const { pollResults } = this.props;
     const { name, avatarURL } = user;
     return (
-      <div>
-        <h2>{`Asked By ${name}`}</h2>
-        <div>
-          <h2>Result</h2>
-          <div>
-            <p>{avatarURL}</p>
+      <div className={"poll-result-container"}>
+        <div className={"pollcard-title"}>
+          <h2>{`Asked By ${name}`}</h2>
+        </div>
+        <div className={"poll-grid-container"}>
+          <div className={"poll-results-avatar-container"}>
+            <img className={"poll-results-avatar"} src={avatarURL} alt={name} />
           </div>
-          <ul>
-            {pollResults &&
-              pollResults.map(result => (
-                <li key={result.id}>
-                  <PollResultCard pollResults={result} />
-                </li>
-              ))}
-          </ul>
+          <div>
+            <h2>Results:</h2>
+            <ul>
+              {pollResults &&
+                pollResults.map(result => (
+                  <li key={result.id}>
+                    <PollResultCard pollResults={result} />
+                  </li>
+                ))}
+            </ul>
+          </div>
         </div>
       </div>
     );
