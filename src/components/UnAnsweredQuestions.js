@@ -10,7 +10,7 @@ class UnAnsweredQuestions extends React.Component {
       <div>
         <ul>
           {sortedQuestions.map(question => (
-            <li key={question.id}>
+            <li className={"card"} key={question.id}>
               <QuestionChoiceCard
                 questionChoice={questionChoiceCard(question.id, questions, users)}
                 link = {`/questions/${question.id}`}

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import serializeForm from "form-serialize";
 import {handleAddQuestions} from "../actions/shared"
 import {Redirect} from "react-router-dom";
-
+import { Button } from "semantic-ui-react";
 
 class CreateQuestion extends React.Component {
   handleSubmit = e => {
@@ -22,16 +22,14 @@ class CreateQuestion extends React.Component {
       return <Redirect to={"/login"} />;
     }
     return (
-      <div>
-        <div className={"question-form"}>
           <div className={"question-form-container"}>
             <form onSubmit={this.handleSubmit}>
               <div className={"test"}>
-                <div>
+                <div className={"new-question-header"}>
                   <h1>CREATE NEW QUESTION</h1>
                 </div>
                 <h3>Complete the question:</h3>
-                <h2>Would You Rather</h2>
+                <h2 className={"question"}>Would You Rather?</h2>
 
                 <div>
                   <input
@@ -41,7 +39,7 @@ class CreateQuestion extends React.Component {
                     required
                   />
                 </div>
-                <h3>OR</h3>
+                <h4>OR</h4>
                 <div>
                   <input
                     type={"text"}
@@ -50,12 +48,11 @@ class CreateQuestion extends React.Component {
                     required
                   />
                 </div>
-                <button>Submit</button>
+                <Button className={"question-form-button"}>Submit</Button>
               </div>
             </form>
           </div>
-        </div>
-      </div>
+
     );
   }
 }
