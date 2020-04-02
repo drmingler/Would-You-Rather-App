@@ -22,12 +22,12 @@ $ npm start or $ yarn start
 #### 4. Open your browser at http://localhost:3000/
 This is what the app should look like, once you open it in your browser.
 
-![alt text]( https://github.com/drmingler/My-Read-App/my-reads-app/public/view1.png "View1")
-![alt text]( https://github.com/drmingler/My-Read-App/my-reads-app/public/view2.png "View2")
-![alt text]( https://github.com/drmingler/My-Read-App/my-reads-app/public/view3.png "View3")
-![alt text]( https://github.com/drmingler/My-Read-App/my-reads-app/public/view4.png "View4")
-![alt text]( https://github.com/drmingler/My-Read-App/my-reads-app/public/view5.png "View5")
-![alt text]( https://github.com/drmingler/My-Read-App/my-reads-app/public/view6.png "View6")
+![alt text]( https://github.com/drmingler/Would-You-Rather-App/public/view1.png "View1")
+![alt text]( https://github.com/drmingler/Would-You-Rather-App/public/view2.png "View2")
+![alt text]( https://github.com/drmingler/Would-You-Rather-App/public/view3.png "View3")
+![alt text]( https://github.com/drmingler/Would-You-Rather-App/public/view4.png "View4")
+![alt text]( https://github.com/drmingler/Would-You-Rather-App/public/view5.png "View5")
+![alt text]( https://github.com/drmingler/Would-You-Rather-App/public/view6.png "View6")
 
 ### Resources and Documentation:
 * [Create-react-app Documentation](https://github.com/facebook/create-react-app)
