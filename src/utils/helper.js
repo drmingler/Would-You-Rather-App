@@ -1,3 +1,4 @@
+// Takes in the list of users and a specific question object
 export function formatQuestions(question, users) {
   const { author, optionOne, optionTwo } = question;
   const { avatarURL, name } = users[author];
@@ -9,6 +10,7 @@ export function formatQuestions(question, users) {
   };
 }
 
+// Calculates the percentage and score of each question and return the result
 export function formatQuestionsResult(question, authuser) {
   const { optionOne, optionTwo } = question;
   const optionOnevotes = optionOne.votes.length;
@@ -39,6 +41,7 @@ export function formatQuestionsResult(question, authuser) {
   ];
 }
 
+// Return the necessary data for the score board
 export function formatScoreCard(users) {
   return Object.keys(users)
     .map(user => {
@@ -58,6 +61,7 @@ export function formatScoreCard(users) {
     .sort((a, b) => b.totalScore - a.totalScore);
 }
 
+// Returns the data needed for the PollCard component
 export function questionChoiceCard(questionId, questions, users) {
   const { author, optionOne } = questions[questionId];
   const user = users[author];
@@ -68,7 +72,7 @@ export function questionChoiceCard(questionId, questions, users) {
     avatar: avatarURL
   };
 }
-
+// Arrange the questions based on the time they were created
 export function sortQuestions(questions, user) {
   const sortedQuestion = Object.keys(questions)
     .map(qid => questions[qid])
@@ -83,6 +87,7 @@ export function sortQuestions(questions, user) {
   return { unansweredQuestions, answeredQuestions };
 }
 
+// Format the data needed for the Dropdown component on the Login component
 export function loginDropDown(users) {
   return Object.keys(users).map(user => ({
     key: users[user].id,

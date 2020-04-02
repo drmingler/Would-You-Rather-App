@@ -5,13 +5,12 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { sortQuestions } from "../utils/helper";
 
-// NEEDs the  user and questions from the connect
-
 class Dashboard extends React.Component {
   state = {
     showAnswered: "showUnAnswered"
   };
 
+  // Update the state whenever the answer or unanswered header is clicked
   handleClick = e => {
     this.setState(prevState => ({
       showAnswered: e
@@ -20,11 +19,12 @@ class Dashboard extends React.Component {
 
   render() {
     const { users, user, questions, authUser } = this.props;
-    // For Testing Purpose
+    // Check the user accessing the route is logged in
     if (!authUser) {
       return <Redirect to={"/login"} />;
     }
-
+    /* sortQuestions helper function helps to sort the questions
+     * based on  whether they have been answered or not*/
     const { unansweredQuestions, answeredQuestions } = sortQuestions(
       questions,
       user
@@ -33,20 +33,26 @@ class Dashboard extends React.Component {
     return (
       <div className={"grid-container"}>
         <div
-          style={{
-            background:
-              this.state.showAnswered === "showAnswered" ? " #ca504f" : null
-          }}
+          style={
+            this.state.showAnswered === "showAnswered"
+              ? {
+                  background: " #ca504f"
+                }
+              : null
+          }
           className={"answered-header"}
           onClick={() => this.handleClick("showAnswered")}
         >
           <h1 className={"dashoard-title"}>Answered Questions</h1>
         </div>
         <div
-          style={{
-            background:
-              this.state.showAnswered === "showUnAnswered" ? " #ca504f" : null
-          }}
+          style={
+            this.state.showAnswered === "showUnAnswered"
+              ? {
+                  background: " #ca504f"
+                }
+              : null
+          }
           className={"unanswer-header"}
           onClick={() => this.handleClick("showUnAnswered")}
         >
@@ -78,7 +84,9 @@ class Dashboard extends React.Component {
   }
 }
 
+// Pick the authorised user and the list of all  users and questions from the store
 function mapStateToProps({ users, questions, authUser }) {
+  // Get the specific user information of the logged in user
   const user = users[authUser];
   return {
     users,

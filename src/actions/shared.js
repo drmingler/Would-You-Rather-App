@@ -1,24 +1,19 @@
 import { addQuestionIdToUsers, addAnswersToUsers, getUsers } from "./users";
 import { addQuestion, addQuestionVote, getQuestions } from "./questions";
-import { showLoading, hideLoading } from "react-redux-loading";
 import { getInitialData, saveQuestion, saveQuestionAnswer } from "../utils/api";
-// import {setAuthUser} from "./authUser";
-// import { logOut } from "./authUser";
 
+/* Get the initial data from the database*/
 export function handleInitialData() {
   return dispatch => {
-    dispatch(showLoading());
     getInitialData().then(({ users, questions }) => {
       dispatch(getUsers(users));
       dispatch(getQuestions(questions));
-      // dispatch(setAuthUser("sarahedo"));
-      // dispatch(logOut());
-      dispatch(hideLoading());
     });
   };
 }
 
-// Answer could be option 1 or option 2
+/* Adds the votes to the specific  question that has the vote and also 
+adds the new answer and the question id  to the user that answred the question */
 export function handleSaveQuestionAnswers(data) {
   return dispatch => {
     saveQuestionAnswer(data).then(() => {
@@ -35,17 +30,14 @@ export function handleAddQuestions({
   optionTwoText,
   authedUser
 }) {
-  return (dispatch)=> {
-    dispatch(showLoading());
+  return dispatch => {
     saveQuestion({
       optionOneText,
       optionTwoText,
       author: authedUser
-    })
-      .then(question => {
-        dispatch(addQuestion(question));
-        dispatch(addQuestionIdToUsers(authedUser, question.id));
-      })
-      .then(dispatch(hideLoading()));
+    }).then(question => {
+      dispatch(addQuestion(question));
+      dispatch(addQuestionIdToUsers(authedUser, question.id));
+    });
   };
 }

@@ -12,10 +12,10 @@ import Navbar from "./Navbar";
 import QuestionCard from "./QuestionCard";
 
 class App extends React.Component {
+  // Get the initial data from the store
   componentDidMount() {
     this.props.dispatch(handleInitialData());
   }
-  //
   render() {
     const { authUser } = this.props;
     return (
@@ -37,6 +37,7 @@ class App extends React.Component {
   }
 }
 
+// Get the authorized user i.e logged in user from the store
 function mapStateToProps({ authUser }) {
   return { authUser };
 }

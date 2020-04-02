@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Button } from "semantic-ui-react";
 class QuestionChoiceCard extends React.Component {
   render() {
+    /* Get author, optionOneText and author avatar from either
+    the AnsweredQuestions or UnAnsweredQuestions Component*/
     const { author, optionOneText, avatar } = this.props.questionChoice;
 
     return (

@@ -3,6 +3,7 @@ import { Progress } from "semantic-ui-react";
 
 class PollResultCard extends React.Component {
   render() {
+    // Get the pollResult object from the PollResult component
     const { pollResults } = this.props;
     return (
       <div
@@ -18,10 +19,7 @@ class PollResultCard extends React.Component {
       >
         <h3> {`Would you rather  ${pollResults.text}?`}</h3>
         <div>
-          <Progress
-            percent={pollResults.percentage}
-            progress
-          />
+          <Progress percent={pollResults.percentage} progress />
         </div>
         <div>
           <h4>
@@ -32,6 +30,5 @@ class PollResultCard extends React.Component {
     );
   }
 }
-
 
 export default PollResultCard;

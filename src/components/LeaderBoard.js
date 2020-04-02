@@ -10,7 +10,8 @@ class LeaderBoard extends React.Component {
     if (!authUser) {
       return <Redirect to={"/login"} />;
     }
-    // const userScores = users ? formatScoreCard(users) : null;
+    /* formatScoreCard helper function helps to present the data
+     needed by the scorecard component in an easy to use format */
     const userScores = formatScoreCard(users);
     return (
       <ul className={"scorecard-container"}>
@@ -30,6 +31,7 @@ class LeaderBoard extends React.Component {
   }
 }
 
+// Get the list of all the users and the presently authorised user for the store
 function mapStateToProps({ users, authUser }) {
   return { users, authUser };
 }

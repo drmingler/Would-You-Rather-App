@@ -5,10 +5,12 @@ import { Dropdown, Button } from "semantic-ui-react";
 import { loginDropDown } from "../utils/helper";
 
 class LoginPage extends React.Component {
+  // Store  the presently selected user on the login form
   state = {
     choice: ""
   };
 
+  // On submit dispatch an action to set the authorised user
   handleSubmit = e => {
     e.preventDefault();
     const { choice } = this.state;
@@ -19,7 +21,8 @@ class LoginPage extends React.Component {
     }
   };
 
-  handleChange = (e, data )=> {
+  // On select update the state with te presently selected option
+  handleChange = (e, data) => {
     const choice = data.value;
     this.setState({ choice });
   };
@@ -30,7 +33,15 @@ class LoginPage extends React.Component {
       <div className={"form-container"}>
         <div>
           <div className={"form-title"}>
-            <p> Welcome To The Would You Rather App</p>
+            <h3> Welcome To The Would You Rather App</h3>
+          </div>
+          <div className={"login-logo"}>
+            <img
+              src={
+                "https://www.pngjoy.com/pngl/826/9766605_react-logo-react-js-logo-svg-transparent-png.png"
+              }
+              alt={"react-logo"}
+            />
           </div>
           <h1 className={"login-form-title"}>Login Page</h1>
         </div>
@@ -52,26 +63,10 @@ class LoginPage extends React.Component {
   }
 }
 
-function mapStateToProps({ users }, props) {
+function mapStateToProps({ users }) {
   return {
     users
   };
 }
 
 export default connect(mapStateToProps)(LoginPage);
-
-// <form onSubmit={this.handleSubmit}>
-//   <select onChange={this.handleChange}>
-//     <option>Select A User</option>
-//     {Object.keys(users).map(user => (
-//         <option
-//             key={users[user].id}
-//             value={users[user].id}
-//         >{`${users[user].name}`}</option>
-//     ))}
-//   </select>
-//   <div>
-//
-//     <button type={"submit"}> Submit </button>
-//   </div>
-// </form>

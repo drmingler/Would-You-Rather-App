@@ -2,6 +2,7 @@ import React from "react";
 
 class ScoreCard extends React.Component {
   render() {
+    // Get score information from the the LeaderBoard component
     const {
       name,
       totalScore,
@@ -10,7 +11,7 @@ class ScoreCard extends React.Component {
       avatar
     } = this.props;
     return (
-      <div className={"scorecards"} >
+      <div className={"scorecards"}>
         <div className={"scorecard-avatar-container"}>
           <img className={"scorecard-avatar"} src={avatar} alt={name} />
         </div>
@@ -26,12 +27,12 @@ class ScoreCard extends React.Component {
           </div>
         </div>
         <div className={"score-container"}>
-            <div className={"score-title"}>
-                <h4> Score </h4>
-            </div>
-            <div className={"total-score"}>
-                <h1> {totalScore} </h1>
-            </div>
+          <div className={"score-title"}>
+            <h4> Score </h4>
+          </div>
+          <div className={"total-score"}>
+            <h1> {totalScore} </h1>
+          </div>
         </div>
       </div>
     );

@@ -4,12 +4,15 @@ import NavBarAvatar from "./NavbarAvatar";
 import { connect } from "react-redux";
 import { logOut } from "../actions/authUser";
 class NavBar extends React.Component {
+  // dispatch a logout action whenever logout is clicked
   handleLogout = e => {
     e.preventDefault();
     const { dispatch } = this.props;
     dispatch(logOut());
   };
   render() {
+     /* Get the logged in user from app component
+      and the user information from the store*/
     const { user, authUserInfo } = this.props;
     return (
       <nav>

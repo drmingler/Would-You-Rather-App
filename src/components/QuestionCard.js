@@ -8,22 +8,27 @@ import { Form, Radio, Button } from "semantic-ui-react";
 
 // I need a the asking user ID as a Prop and question ID  from  the route of the Answered And unAnswered component
 class QuestionCard extends React.Component {
+  // Store the currently selected option
   state = {
     value: ""
   };
   handleSubmit = e => {
     e.preventDefault();
+    // Check if the user has selected an option before submitting
     if (this.state.value) {
       const { authedUser, qid } = this.props;
+      // Make the user's answer an object with answer as the key and the selected option as value
       const answer = serializeForm(e.target, { hash: true });
+      // Dispatch action to update store with the user's choice
       this.props.dispatch(
         handleSaveQuestionAnswers({ authedUser, qid, ...answer })
       );
-      // Redirect to poll with question id result page
+
+      // Redirect to poll page with question id result page
       this.props.history.push(`/poll/${qid}`);
     }
   };
-
+  // Update the state whenever a user makes a choice
   handleChange = (e, { value }) => {
     e.preventDefault();
     this.setState(() => ({ value: value }));
@@ -31,10 +36,11 @@ class QuestionCard extends React.Component {
 
   render() {
     const { question, authedUser, voted } = this.props;
-    // TESTING PURPOSE
+    // Check if user is authorised
     if (!authedUser) {
       return <Redirect to={"/login"} />;
     }
+    // Check if user has voted before and redirect to homepage if true
     if (voted === true) {
       return <Redirect to={"/"} />;
     }
@@ -82,13 +88,15 @@ class QuestionCard extends React.Component {
   }
 }
 
+/* Get the question id as props from the question route
+ * Get users, questions and the authorised user from the store*/
 function mapStateToProps({ questions, users, authUser }, props) {
   const { question_id } = props.match.params;
   // Check if user has voted already
   const voted = authUser
     ? Object.keys(users[authUser].answers).includes(question_id)
     : null;
-
+  // formatQuestions helper function presents the questions, avatar and name of the user that has the question
   return {
     qid: question_id,
     authedUser: authUser,
