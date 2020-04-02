@@ -1,5 +1,3 @@
-import React from "react";
-
 export function formatQuestions(question, users) {
   const { author, optionOne, optionTwo } = question;
   const { avatarURL, name } = users[author];
@@ -44,7 +42,7 @@ export function formatQuestionsResult(question, authuser) {
 export function formatScoreCard(users) {
   return Object.keys(users)
     .map(user => {
-      const { answers, questions, name } = users[user];
+      const { answers, questions, name, avatarURL } = users[user];
       const noOfAnsweredQuestion = Object.keys(answers).length;
       const noOfAskedQuestion = questions.length;
       const totalScore = noOfAnsweredQuestion + noOfAskedQuestion;
@@ -53,7 +51,8 @@ export function formatScoreCard(users) {
         totalScore,
         noOfAnsweredQuestion,
         noOfAskedQuestion,
-        user
+        user,
+        avatar: avatarURL
       };
     })
     .sort((a, b) => b.totalScore - a.totalScore);

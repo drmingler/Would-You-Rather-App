@@ -6,24 +6,32 @@ class ScoreCard extends React.Component {
       name,
       totalScore,
       noOfAnsweredQuestion,
-      noOfAskedQuestion
+      noOfAskedQuestion,
+      avatar
     } = this.props;
     return (
-      <div className={"scorecard-container"}>
-        <h1>{name}</h1>
-        <div>
+      <div className={"scorecards"} >
+        <div className={"scorecard-avatar-container"}>
+          <img className={"scorecard-avatar"} src={avatar} alt={name} />
+        </div>
+        <div className={"scorecard-info"}>
+          <h1>{name}</h1>
           <div>
             <h4> Answered Questions</h4>
-            <p>{noOfAnsweredQuestion}</p>
+            <span className={"scorecard-number"}>{noOfAnsweredQuestion}</span>
           </div>
           <div>
             <h4> Created Questions</h4>
-            <p>{noOfAskedQuestion}</p>
+            <span className={"scorecard-number"}>{noOfAskedQuestion}</span>
           </div>
         </div>
-        <div>
-          <h1> Score </h1>
-          <h1> {totalScore} </h1>
+        <div className={"score-container"}>
+            <div className={"score-title"}>
+                <h4> Score </h4>
+            </div>
+            <div className={"total-score"}>
+                <h1> {totalScore} </h1>
+            </div>
         </div>
       </div>
     );

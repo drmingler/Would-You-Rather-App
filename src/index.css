@@ -243,7 +243,6 @@ p:first-child {
   text-align: left;
 }
 
-
 .questioncard-title h1 {
   font-size: 15px;
   font-family: sans-serif;
@@ -252,7 +251,7 @@ p:first-child {
 .questioncard-flex-container {
   display: flex;
 }
-.questioncard-flex-item1 h1{
+.questioncard-flex-item1 h1 {
   padding: 15px;
   text-align: left;
 }
@@ -260,16 +259,16 @@ p:first-child {
   width: 100%;
 }
 
-.poll-result-container{
+.poll-result-container {
   width: 40%;
   border-radius: 5px;
   border: thin solid #cfcdd0;
 }
-.poll-result-container h2{
+.poll-result-container h2 {
   text-align: left;
   padding: 20px 0px 0px 10px;
 }
-.pollcard-title{
+.pollcard-title {
   border-bottom: thin solid #cfcdd0;
   text-align: left;
 }
@@ -280,24 +279,25 @@ p:first-child {
   padding: 10px;
 }
 
-.poll-grid-container{
+.poll-grid-container {
   display: grid;
   grid-template-columns: 35% 70%;
   grid-template-rows: auto;
 }
-.poll-results-avatar{
+
+.poll-results-avatar {
   height: 170px;
   border-radius: 50%;
   width: 75%;
   margin-top: 50%;
 }
 
-.poll-results-avatar-container{
+.scorecard-avatar-container,
+.poll-results-avatar-container {
   text-align: center;
 }
 
-
-.pollcard-container{
+.pollcard-container {
   width: 80%;
   border-radius: 5px;
   border: thin solid #cfcdd0;
@@ -305,11 +305,63 @@ p:first-child {
   padding: 20px;
 }
 
-.ui.progress .bar{
+.ui.progress .bar {
   background: #ca504f;
-
 }
 .scorecard-container {
   width: 40%;
-  margin: 10px;
+}
+.scorecards {
+  margin: 20px;
+  width: 80%;
+  border: thin solid #cfcdd0;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  grid-template-rows: auto;
+}
+
+.scorecard-avatar {
+  margin: 20px;
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+}
+
+.scorecard-info {
+  border-width: 0 1px 0 1px;
+  border-style: solid;
+  border-color: #cfcdd0;
+  text-align: left;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+.scorecard-number {
+  display: inline-block;
+  float: right;
+  margin-top: -32px;
+  margin-right: 35px;
+  font-weight: bold;
+}
+.score-container {
+  margin: 15px;
+  border: thin solid #cfcdd0;
+}
+.score-title {
+  border-bottom: thin solid #cfcdd0;
+  padding:10px;
+  background: #e0e1e4;
+}
+.total-score{
+  border-radius: 50%;
+  background: #ca504f;
+  height: 40%;
+  width: 40%;
+  margin-left: 30%;
+  margin-top: 12px;
+
+}
+.total-score h1{
+  color: white;
+  padding: 2px;
 }
