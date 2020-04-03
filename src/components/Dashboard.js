@@ -2,7 +2,6 @@ import React from "react";
 import AnsweredQuestions from "./AnsweredQuestions";
 import UnAnsweredQuestions from "./UnAnsweredQuestions";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
 import { sortQuestions } from "../utils/helper";
 
 class Dashboard extends React.Component {
@@ -18,11 +17,7 @@ class Dashboard extends React.Component {
   };
 
   render() {
-    const { users, user, questions, authUser } = this.props;
-    // Check the user accessing the route is logged in
-    if (!authUser) {
-      return <Redirect to={"/login"} />;
-    }
+    const { users, user, questions } = this.props;
     /* sortQuestions helper function helps to sort the questions
      * based on  whether they have been answered or not*/
     const { unansweredQuestions, answeredQuestions } = sortQuestions(

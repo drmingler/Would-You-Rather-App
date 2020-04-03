@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink , Redirect} from "react-router-dom";
 import NavBarAvatar from "./NavbarAvatar";
 import { connect } from "react-redux";
 import { logOut } from "../actions/authUser";
@@ -40,7 +40,7 @@ class NavBar extends React.Component {
               <li>
                 <NavLink
                   onClick={this.handleLogout}
-                  to="/login"
+                  to="/leaderboard"
                   activeClassName="active"
                 >
                   Logout

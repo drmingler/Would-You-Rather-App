@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import serializeForm from "form-serialize";
 import { handleAddQuestions } from "../actions/shared";
-import { Redirect } from "react-router-dom";
 import { Button } from "semantic-ui-react";
 
 class CreateQuestion extends React.Component {
@@ -17,11 +16,6 @@ class CreateQuestion extends React.Component {
     this.props.history.push("/");
   };
   render() {
-    const { authUser } = this.props;
-    // If the authUser is not a thing, it means user is not authorized redirect to the login page
-    if (!authUser) {
-      return <Redirect to={"/login"} />;
-    }
     return (
       <div className={"question-form-container"}>
         <form onSubmit={this.handleSubmit}>
