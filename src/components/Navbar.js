@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { NavLink , Redirect} from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import NavBarAvatar from "./NavbarAvatar";
 import { connect } from "react-redux";
 import { logOut } from "../actions/authUser";
@@ -9,9 +9,10 @@ class NavBar extends React.Component {
     e.preventDefault();
     const { dispatch } = this.props;
     dispatch(logOut());
+    this.props.history.push("/")
   };
   render() {
-     /* Get the logged in user from app component
+    /* Get the logged in user from app component
       and the user information from the store*/
     const { user, authUserInfo } = this.props;
     return (
@@ -40,7 +41,7 @@ class NavBar extends React.Component {
               <li>
                 <NavLink
                   onClick={this.handleLogout}
-                  to="/leaderboard"
+                  to="/"
                   activeClassName="active"
                 >
                   Logout
@@ -58,4 +59,4 @@ function mapStateToProps({ users }, { user }) {
   const authUserInfo = user ? users[user] : null;
   return { authUserInfo };
 }
-export default connect(mapStateToProps)(NavBar);
+export default withRouter(connect(mapStateToProps)(NavBar));

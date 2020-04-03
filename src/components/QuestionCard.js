@@ -3,7 +3,7 @@ import { formatQuestions } from "../utils/helper";
 import { connect } from "react-redux";
 import { handleSaveQuestionAnswers } from "../actions/shared";
 import serializeForm from "form-serialize";
-import { Redirect } from "react-router-dom";
+import { Redirect,withRouter } from "react-router-dom";
 import { Form, Radio, Button } from "semantic-ui-react";
 
 // I need a the asking user ID as a Prop and question ID  from  the route of the Answered And unAnswered component
@@ -107,4 +107,4 @@ function mapStateToProps({ questions, users, authUser }, props) {
   };
 }
 
-export default connect(mapStateToProps)(QuestionCard);
+export default withRouter(connect(mapStateToProps)(QuestionCard));

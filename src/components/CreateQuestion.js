@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import serializeForm from "form-serialize";
 import { handleAddQuestions } from "../actions/shared";
 import { Button } from "semantic-ui-react";
+import {withRouter} from "react-router-dom";
 
 class CreateQuestion extends React.Component {
   // Dispatch an action to save the newly created question
@@ -53,4 +54,4 @@ class CreateQuestion extends React.Component {
 function mapStateToProps({ authUser }) {
   return { authUser };
 }
-export default connect(mapStateToProps)(CreateQuestion);
+export default withRouter(connect(mapStateToProps)(CreateQuestion));
