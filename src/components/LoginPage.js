@@ -16,8 +16,11 @@ class LoginPage extends React.Component {
     const { choice } = this.state;
     if (choice) {
       this.props.dispatch(setAuthUser(choice));
-      // Redirect to homepage
-      this.props.history.push("/");
+      /* Get the path of  previous destination the user
+       was routing to before being directed to the login page*/
+      const { from } = this.props.location.state || { from: { pathname: "/" } };
+      // Redirect to the destination after login
+      this.props.history.push(from);
     }
   };
 

@@ -2,14 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import { formatScoreCard } from "../utils/helper";
 import ScoreCard from "./ScoreCard";
-import { Redirect } from "react-router-dom";
+
 class LeaderBoard extends React.Component {
   render() {
-    const { users, authUser } = this.props;
+    const { users } = this.props;
 
-    if (!authUser) {
-      return <Redirect to={"/login"} />;
-    }
     /* formatScoreCard helper function helps to present the data
      needed by the scorecard component in an easy to use format */
     const userScores = formatScoreCard(users);

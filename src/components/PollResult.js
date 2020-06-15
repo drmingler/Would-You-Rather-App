@@ -2,17 +2,17 @@ import React from "react";
 import PollResultCard from "./PollResultCard";
 import { formatQuestionsResult } from "../utils/helper";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { withRouter, Redirect } from "react-router-dom";
 
 class PollResult extends React.Component {
   render() {
-    const { user, authUser } = this.props;
+    const { user, pollResults } = this.props;
 
-    if (!authUser) {
-      return <Redirect to={"/login"} />;
+    // If pollResults is not a thing it means the route is invalid
+    if (!pollResults) {
+      return <Redirect to={"/error"}/>
     }
 
-    const { pollResults } = this.props;
     // Get the name and avatar from the user object
     const { name, avatarURL } = user;
     return (
@@ -42,10 +42,10 @@ class PollResult extends React.Component {
 }
 
 /* Get the question id as props from the poll route
-* Get users, questions and the authorised user from the store*/
+ * Get users, questions and the authorised user from the store*/
 function mapStateToProps({ users, questions, authUser }, props) {
   // Get the specific question that is being accessed from the route
-  const { question_id } = props.match.params;
+  const { question_id } = props.computedMatch.params;
   // Index the questions with the question Id gotten from the route
   const question = questions[question_id];
   return {
@@ -55,4 +55,4 @@ function mapStateToProps({ users, questions, authUser }, props) {
     pollResults: question ? formatQuestionsResult(question, authUser) : null
   };
 }
-export default connect(mapStateToProps)(PollResult);
+export default withRouter(connect(mapStateToProps)(PollResult));
