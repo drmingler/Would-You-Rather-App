@@ -3,7 +3,7 @@ import { formatQuestions } from "../utils/helper";
 import { connect } from "react-redux";
 import { handleSaveQuestionAnswers } from "../actions/shared";
 import serializeForm from "form-serialize";
-import { Redirect } from "react-router-dom";
+import { Redirect,withRouter } from "react-router-dom";
 import { Form, Radio, Button } from "semantic-ui-react";
 
 // I need a the asking user ID as a Prop and question ID  from  the route of the Answered And unAnswered component
@@ -35,10 +35,10 @@ class QuestionCard extends React.Component {
   };
 
   render() {
-    const { question, authedUser, voted } = this.props;
-    // Check if user is authorised
-    if (!authedUser) {
-      return <Redirect to={"/login"} />;
+    const { question, voted } = this.props;
+    // If question is not a thing it means the route is invalid
+    if (!question) {
+      return <Redirect to={"/error"} />;
     }
     // Check if user has voted before and redirect to homepage if true
     if (voted === true) {
@@ -91,7 +91,7 @@ class QuestionCard extends React.Component {
 /* Get the question id as props from the question route
  * Get users, questions and the authorised user from the store*/
 function mapStateToProps({ questions, users, authUser }, props) {
-  const { question_id } = props.match.params;
+  const { question_id } = props.computedMatch.params;
   // Check if user has voted already
   const voted = authUser
     ? Object.keys(users[authUser].answers).includes(question_id)
@@ -100,12 +100,11 @@ function mapStateToProps({ questions, users, authUser }, props) {
   return {
     qid: question_id,
     authedUser: authUser,
-    question:
-      Object.keys(questions).length !== 0
-        ? formatQuestions(questions[question_id], users)
-        : null,
+    question: Object.keys(questions).includes(question_id)
+      ? formatQuestions(questions[question_id], users)
+      : null,
     voted
   };
 }
 
-export default connect(mapStateToProps)(QuestionCard);
+export default withRouter(connect(mapStateToProps)(QuestionCard));

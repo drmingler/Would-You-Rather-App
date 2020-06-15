@@ -10,6 +10,7 @@ import LeaderBoard from "./LeaderBoard";
 import CreateQuestion from "./CreateQuestion";
 import Navbar from "./Navbar";
 import QuestionCard from "./QuestionCard";
+import ProtectedRoutes from "./ProtectedRoutes";
 
 class App extends React.Component {
   // Get the initial data from the store
@@ -24,12 +25,13 @@ class App extends React.Component {
         <div className="Container">
           <Switch>
             <Route path="/login" exact component={LoginPage} />
-            <Route path="/" exact component={Dashboard} />
-            <Route path="/poll/:question_id" component={PollResult} />
-            <Route path={"/questions/:question_id"} component={QuestionCard} />
-            <Route path={"/leaderboard"} exact component={LeaderBoard} />
-            <Route path={"/add"} exact component={CreateQuestion} />
+            <ProtectedRoutes path="/" exact component={Dashboard} />
+            <ProtectedRoutes path="/poll/:question_id" component={PollResult} />
+            <ProtectedRoutes path={"/questions/:question_id"} component={QuestionCard} />
+            <ProtectedRoutes path={"/leaderboard"} exact component={LeaderBoard} />
+            <ProtectedRoutes path={"/add"} exact component={CreateQuestion} />
             <Route path={"*"} component={Error} />
+            <Route exact  path={"/error"} component={Error} />
           </Switch>
         </div>
       </Router>
