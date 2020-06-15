@@ -17,11 +17,11 @@ class ScoreCard extends React.Component {
         </div>
         <div className={"scorecard-info"}>
           <h1>{name}</h1>
-          <div>
-            <h4> Answered Questions</h4>
+          <div className={"score-result"}>
+            <h4 > Answered Questions </h4>
             <span className={"scorecard-number"}>{noOfAnsweredQuestion}</span>
           </div>
-          <div>
+          <div className={"score-result"}>
             <h4> Created Questions</h4>
             <span className={"scorecard-number"}>{noOfAskedQuestion}</span>
           </div>

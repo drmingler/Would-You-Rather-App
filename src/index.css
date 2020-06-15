@@ -358,10 +358,14 @@ p:first-child {
 }
 .total-score h1 {
   color: white;
-  padding: 8px;
+  position: relative;
+  top: 9px;
+}
+.ui.progress .bar>.progress{
+  left: 5px;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 750px) {
   .form-container,
   .question-form-container {
     width: 80%;
@@ -384,26 +388,29 @@ p:first-child {
   .scorecards {
     width: 90%;
   }
-  .total-score {
-    border-radius: 50%;
-    background: #ca504f;
-    height: 30%;
-    width: 70%;
-    margin: 15px;
-  }
 
   .total-score h1 {
     color: white;
-    padding: 5px;
+    position: relative;
+    top : -2px;
+
   }
 
   .score-container {
     margin: 5px;
   }
-  .scorecard-number {
-    display: inline-block;
-    font-weight: bold;
-    padding-top: 12px;
-    float: left;
+  .scorecard-number, h4 {
+    display: none;
+  }
+
+  .scorecard-info{
+    margin: auto;
+    position: relative;
+    padding-right: 10px;
+  }
+
+  .ui.button.question-form-button{
+    position: relative;
+    left: -10px;
   }
 }
