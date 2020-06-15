@@ -153,11 +153,10 @@ p:first-child {
   margin: 10px;
 }
 .choice-card-avatar {
-  height: 110px;
-  border-radius: 50%;
-  width: 20%;
-  float: left;
   margin: 20px;
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
 }
 
 .choice-card-container {
@@ -359,7 +358,7 @@ p:first-child {
 .total-score h1 {
   color: white;
   position: relative;
-  top: 9px;
+  top: 1px;
 }
 .ui.progress .bar>.progress{
   left: 5px;
