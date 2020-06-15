@@ -2,7 +2,7 @@ let users = {
     sarahedo: {
         id: 'sarahedo',
         name: 'Sarah Edo',
-        avatarURL: "https://tylermcginnis.com/would-you-rather/sarah.jpg",
+        avatarURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTwH6DalS_KpcvdezZT-tymCO2Spog0pW1g8ySWMhAPAohnxKNJ&usqp=CAU",
         answers: {
             "8xf0y6ziyjabvozdd253nd": 'optionOne',
             "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -14,7 +14,7 @@ let users = {
     tylermcginnis: {
         id: 'tylermcginnis',
         name: 'Tyler McGinnis',
-        avatarURL: "https://tylermcginnis.com/would-you-rather/tyler.jpg",
+        avatarURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRVTUKf46N0lNmZ0o8H2S2f9jzpOYIDWqBXhrL1WMyTR4sUxUDv&usqp=CAU",
         answers: {
             "vthrdm985a262al8qx3do": 'optionOne',
             "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -24,7 +24,7 @@ let users = {
     johndoe: {
         id: 'johndoe',
         name: 'John Doe',
-        avatarURL: "https://tylermcginnis.com/would-you-rather/dan.jpg",
+        avatarURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTYdT8o2a39x6wj0DRoNeYTTFOQzK1Zl12wZoHiAEs8OywMOOjx&usqp=CAU",
         answers: {
             "xj352vofupe1dqz9emx13r": 'optionOne',
             "vthrdm985a262al8qx3do": 'optionTwo',
